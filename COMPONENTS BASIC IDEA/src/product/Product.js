@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Product = ({ product, Price }) => {
-return(
+const Product = ({ product, Price, handleClick, counter }) => {
+return (
     <div className="product-tile">
         <img className="product-image" src={product.image} alt={product.title} />
         <div>
@@ -13,6 +13,7 @@ return(
             </span>
            </Price>
         </div>
+        <button onClick= {handleClick}>Click me:{counter}</button>
       </div>
     )
 };

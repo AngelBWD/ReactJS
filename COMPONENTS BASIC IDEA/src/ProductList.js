@@ -6,22 +6,20 @@ import ProductPrice from './product-price/ProductPrice'
 import './product-list.css'
 
 class ProductList extends Component {
-  constructor(props){
-    super(props)
 
-    this.state = {
-      counter: props.counter || 0, 
+
+    state = {
+      counter: this.props.counter || 0, 
       title: "Hello Ecom"
     }
+  
+ 
+  handleClick = (event) => {
+    this.setState({
+      counter: this.state.counter + 1
+    }) 
   }
-
-  componentDidMount(){
-    setInterval(() => {
-      this.setState(prevState => ({
-        counter: prevState.counter + 1
-      }))
-    }, 1000);
-  }
+ 
 
   render(){
     const { product } = this.props;
@@ -30,8 +28,11 @@ class ProductList extends Component {
     return (
       <div className="container">
         {title}
-        <Product product = {product} Price = {ProductPrice}/>
-        {counter}
+        <Product 
+        product={product}
+        Price={ProductPrice}
+        handleClick = {this.handleClick}
+        counter={counter}/>
       </div>
     )
   }
@@ -47,14 +48,14 @@ ProductList.defaultProps = {
   }
 }
 
-ProductList.PropTypes = {
-  counter: PropTypes.number,
-  product: PropTypes.shape({
-    image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    brand: PropTypes.string,
-    price: PropTypes.number
-  })
-}
+// ProductList.PropTypes = {
+//   counter: PropTypes.number,
+//   product: PropTypes.shape({
+//     image: PropTypes.string.isRequired,
+//     title: PropTypes.string.isRequired,
+//     brand: PropTypes.string,
+//     price: PropTypes.number
+//   })
+// }
 
 export default ProductList
