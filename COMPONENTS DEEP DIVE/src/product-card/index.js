@@ -29,7 +29,7 @@ class ProductCard extends Component {
 
   render() {
     const { image, title, brand, price } = this.props
-   console.log('render');
+   
    
     return (
       <div className="product-tile" onMouseEnter={this.handleMouseOver} onMouseLeave={this.handleMouseOut}>
@@ -44,13 +44,7 @@ class ProductCard extends Component {
     )
   }
 
-  componentDidMount() {
-    console.log('componentDidMount')
-  }
 
-  componentDidUpdate() {
-    console.log('componentDidUpdate')
-  }
 }
 
 

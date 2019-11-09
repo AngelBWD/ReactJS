@@ -3,10 +3,15 @@ import PropTypes from 'prop-types'
 import ProductCard from '../product-card'
 import Header from '../header'
 import './styles.css'
+import logged from '../logged'
 
 const renderCards = (products) => {
   return products.map(product => {
-    return (<ProductCard key={product.id} {...product} />)
+    return (
+      <Fragment key = {product.id}>
+        {logged(ProductCard,product)}
+      </Fragment>
+    )  
   })
 }
 
