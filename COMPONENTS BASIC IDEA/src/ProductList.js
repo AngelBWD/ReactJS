@@ -10,7 +10,8 @@ class ProductList extends Component {
 
     state = {
       counter: this.props.counter || 0, 
-      title: "Hello Ecom"
+      title: "Hello Ecom",
+      value: ''
     }
   
  
@@ -19,11 +20,17 @@ class ProductList extends Component {
       counter: this.state.counter + 1
     }) 
   }
+  handleChange = event => {
+    this.setState({
+      value: event.target.value
+    }) 
+  }
  
 
   render(){
     const { product } = this.props;
-    const { counter, title } = this.state;
+    const { counter, title, value } = this.state;
+
 
     return (
       <div className="container">
@@ -32,7 +39,8 @@ class ProductList extends Component {
         product={product}
         Price={ProductPrice}
         handleClick = {this.handleClick}
-        counter={counter}/>
+        counter = {counter}/>
+        <input onChange = {this.handleChange} />
       </div>
     )
   }
