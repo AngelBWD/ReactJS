@@ -1,10 +1,28 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+import Header from '../header';
+import { Link } from 'react-router-dom';
+import data from '../data';
+
  
-const ProductPage = () => {
+const ProductPage = (props) => {
+    console.log(props);
+    
+
+    const product = data[props.match.params.id]
     return (
-       <div>
-           Product Page
-       </div>
+           <Fragment>
+               <Header />
+                 <div> 
+                    <div> 
+                        Product Page - {product.title}
+                            <Link to='/'>
+                             <br/>
+                             GO BACK TO HOMEPAGE
+                            </Link>
+                    </div>
+                 </div>
+           </Fragment>
+          
     )
 }
 

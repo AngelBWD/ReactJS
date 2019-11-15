@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductPage from './product-page/index'
+import ErrorPage from './error-page';
 import {
     BrowserRouter as Router,
     Switch,
@@ -13,7 +14,8 @@ import ProductList from './product-list/index'
           <Router>
               <Switch>
                 <Route path ="/" exact component = {ProductList} />
-                <Route path ="/product" component = {ProductPage} /> 
+                <Route path ="/product/:id" component = {ProductPage} /> 
+                <Route  component = {ErrorPage} /> 
               </Switch>
             
           </Router>
