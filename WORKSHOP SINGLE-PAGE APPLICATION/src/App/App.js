@@ -5,6 +5,9 @@ import Main from './Main/Main';
 import Aside from '../Aside/Aside';
 import Posts from '../publications/Posts/Posts';
 import CreatePost from '../publications/CreatePost/CreatePost';
+import Profile from '../Profile/Profile';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
 import Footer from '../Footer/Footer';
 import Loader from './Loader/Loader';
 import {Route, BrowserRouter, Switch } from 'react-router-dom';
@@ -23,6 +26,10 @@ function App() {
                 <Switch>
                   <Route path='/' exact component={Posts}/>
                   <Route path='/create-posts'  component={CreatePost}/>
+                  <Route path='/profil'  component={Profile}/>
+                  <Route path='/login'  component={Login}/>
+                  <Route path='/register'  component={Register}/>
+
                 </Switch>
               </Main>
             </div>
