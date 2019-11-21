@@ -22,16 +22,23 @@ function App() {
             <Navigation />
             <div className="Container">
               <Aside />
-              <Main title="Hello!">
                 <Switch>
-                  <Route path='/' exact component={Posts}/>
-                  <Route path='/create-posts'  component={CreatePost}/>
-                  <Route path='/profil'  component={Profile}/>
-                  <Route path='/login'  component={Login}/>
-                  <Route path='/register'  component={Register}/>
-
+                  <Route path='/' exact>
+                    <Main title="Posts"><Posts/></Main>
+                  </Route>
+                  <Route path='/create-posts'>
+                    <Main title="Create Post"><CreatePost/></Main> 
+                  </Route>
+                  <Route path='/profil'>
+                    <Main title="Profile"><Profile/></Main> 
+                  </Route>
+                  <Route path='/login'>
+                    <Main title="Login"><Login/></Main> 
+                  </Route>
+                  <Route path='/register'>
+                    <Main title="Register"><Register/></Main> 
+                  </Route>
                 </Switch>
-              </Main>
             </div>
             <Footer />
         </div>
