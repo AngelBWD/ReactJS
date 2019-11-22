@@ -7,6 +7,7 @@ import Posts from '../publications/Posts/Posts';
 import CreatePost from '../publications/CreatePost/CreatePost';
 import Profile from '../Profile/Profile';
 import Login from '../Login/Login';
+import NotFound from '../NotFound/NotFound';
 import Register from '../Register/Register';
 import Footer from '../Footer/Footer';
 import Loader from './Loader/Loader';
@@ -37,6 +38,9 @@ function App() {
                   </Route>
                   <Route path='/register'>
                     <Main title="Register"><Register/></Main> 
+                  </Route>
+                  <Route path='*'>
+                    <Main title="Not Found"><NotFound/></Main> 
                   </Route>
                 </Switch>
             </div>

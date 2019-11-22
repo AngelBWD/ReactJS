@@ -1,13 +1,19 @@
 import React from 'react';
 import './Aside.css';
-//import Link from '../shared/Link/Link';
+import Link from '../shared/Link/Link';
 
 
 function Aside (){
     return <aside className="Aside">
         <ul>
-          {/* <Link url ="#">Aside Link 1</Link>
-          <Link url ="#">Aside Link 2</Link> */}
+          <Link to ="/">
+              <img id='logo' src='logo192.png' alt="my-app-logo"/>
+          </Link>
+          <Link to ="/">Posts</Link>
+          <Link to ="/create-posts">New Post</Link>
+          <Link to ="/profil">Profil</Link>
+          <Link to ="/login">Login</Link>
+          <Link to ="/register">Register</Link>
         </ul>
     </aside >;
 };
