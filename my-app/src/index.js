@@ -5,6 +5,6 @@ import ProductList from './ProductList';
 import data from './data'
 
 
-ReactDOM.render(<ProductList product={data[1]} />,document.getElementById('root'));
+ReactDOM.render(<ProductList product={data[3]} counter={0} />,document.getElementById('root'));
 
 
