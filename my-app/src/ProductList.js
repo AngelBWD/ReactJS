@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import './product-list.css';
 import ProductPrice from './product-price/ProductPrice'
 import Product from './product/Product'
@@ -8,29 +9,49 @@ class ProductList extends Component  {
     super(props)
 
     this.state = {
-      counter: props.counter
+      counter: props.counter,
+      title: 'Hello Ecom'
     }
   }
-  componentDidMount(){
-    setInterval(() => {
-      this.setState({
-        counter: this.state.counter + 1
-      })
-    },1000)
+  
+  handleClick = (event) => {
+    this.setState({
+      counter: this.state.counter + 1
+    })
   }
-
  
   render() {
 
     const {product} = this.props
-    const {counter} = this.state
+    const {counter, title} = this.state
     return (
       <div className="container">
+         {title}
         <Product product={product} Price={ProductPrice} />
-        {counter}
+        <button onClick={this.handleClick}>Click me: {counter}</button>
       </div>
     )
   }
+}
+
+ProductList.defaultProps = {
+  counter: 0,
+  product: {
+    image: '',
+    title: 'Dummy Title',
+    price: 5,
+    brands: ''
+  }
+}
+
+ProductList.propTypes = {
+  counter: PropTypes.number,
+  product: PropTypes.shape({
+    image: PropTypes.string,
+    title: PropTypes.string,
+    brands: PropTypes.string,
+    image: PropTypes.number
+  })
 }
 
 

@@ -1,11 +1,9 @@
 import React from 'react'
 
-const ProductPrice = ({price}) => (
+const ProductPrice = ({children}) => (
     <p className="product-price">
      Price:
-        <span>
-            {price}$
-        </span>
+        {children}
     </p>
 )
 
