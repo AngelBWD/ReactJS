@@ -1,7 +1,22 @@
 import React from 'react'
 
 
-const Product = ({product, Price}) => {
+class Product extends React.Component  {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      counter: 0
+    }
+  }
+
+  handleClick = (event) => {
+    this.setState({
+      counter: this.state.counter + 1
+    })
+  }
+  render() {
+    const {product, Price} = this.props
     return (
         <div className="product-tile">
         <img className="product-image" src={product.image} alt={product.title} />
@@ -13,9 +28,11 @@ const Product = ({product, Price}) => {
                 {product.price}$
               </span>
           </Price>
+          <button onClick={this.handleClick}>Click me: {this.state.counter}</button>
         </div>
       </div>
     )
+  }
 }
 
 export default Product

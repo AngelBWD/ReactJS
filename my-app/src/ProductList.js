@@ -5,30 +5,33 @@ import ProductPrice from './product-price/ProductPrice'
 import Product from './product/Product'
 
 class ProductList extends Component  {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      counter: props.counter,
-      title: 'Hello Ecom'
-    }
+ state = {
+      title: 'Hello Ecom',
+      value: ''
   }
-  
-  handleClick = (event) => {
+
+  handleChange = event => {
     this.setState({
-      counter: this.state.counter + 1
+      value: event.target.value
     })
   }
- 
-  render() {
+    render() {
 
     const {product} = this.props
-    const {counter, title} = this.state
+    const { title, value} = this.state
+    
     return (
       <div className="container">
          {title}
-        <Product product={product} Price={ProductPrice} />
-        <button onClick={this.handleClick}>Click me: {counter}</button>
+        <Product 
+          product={product} 
+          Price={ProductPrice} 
+        />
+        <Product 
+          product={product} 
+          Price={ProductPrice} 
+        />
+        <input onChange={this.handleChange} />
       </div>
     )
   }
