@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
 
 import ProductCard from '../product-card'
 import Header from '../header'
 import logged from '../logged'
 import styles from './styles.module.css'
+import data from '../data'
+
 
 const Wrapper = styled.div`
    text-align: center;
@@ -68,19 +69,12 @@ class ProductList extends React.Component {
         </div>
         <button onClick={this.handleClick}>Toggled Red Theme</button>
         <div className={themeClass} red = {this.state.isRed}>
-          {renderCards(this.props.products)}
+          {renderCards(data)}
         </div>
       </Fragment>
     )
   }
 }
 
-ProductList.defaultProps = {
-  products: []
-}
-
-ProductList.propTypes = {
-  products: PropTypes.array.isRequired
-}
 
 export default ProductList

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ProductPrice from '../product-price'
 import styles from './styles.module.css'
+import { Link } from 'react-router-dom'
 
 
 const ProductImage = ({image, title}) => {
@@ -35,12 +36,14 @@ class ProductCard extends Component {
 
 
   render() {
-    const { image, title, brand, price } = this.props
+    const { image, title, brand, price, id } = this.props
    
    
     return (
       <div className={styles.container} onMouseEnter={this.handleMouseOver} onMouseLeave={this.handleMouseOut}>
-        <ProductImage image = {image} title = {title} />
+        <Link to={`/product/${id}`}>
+              <ProductImage image = {image} title = {title} />
+        </Link>
         <div>
           <span className={styles["product-brand"]}>{brand}</span>
           <span className={styles["product-title"]}>{title}</span>
