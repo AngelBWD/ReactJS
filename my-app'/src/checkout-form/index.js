@@ -68,7 +68,9 @@ class CheckoutForm extends Component {
                 error: 'Username is mandatory, bro!'
             })
         } else {
-            console.log(this.state);     
+            this.setState({
+                error: null
+            })     
         }
     }
 

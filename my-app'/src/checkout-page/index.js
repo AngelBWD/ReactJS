@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {} from 'react'
 import Header from '../header'
 import CheckoutForm from '../checkout-form'
 
