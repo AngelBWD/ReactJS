@@ -59,7 +59,8 @@ class ProductList extends React.Component {
     .then((myErr) => console.log(myErr));
   }
   render(){
-
+    console.log(this.props);
+    
     const themeClass = this.state.isRed ? styles.container : styles.redContainer
     return (
       <Fragment>
