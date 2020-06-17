@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
+import { Form, Field } from 'react-final-form'
 
 class LibraryForm extends Component {
     render() {
         return (
             <Form
-                  onSubmit={onSubmit}
-                  validate={validate}
+                  onSubmit={() => {}}
+                  validate={() => {}}
                 render={ ({ handleSubmit }) => (
                   <form onSubmit={handleSubmit}>
                     <h2>Simple Default Input</h2>
@@ -15,10 +16,7 @@ class LibraryForm extends Component {
                     </div>
 
                     <h2>An Arbitrary Reusable Input Component</h2>
-                    <div>
-                      <label>Interests</label>
-                      <Field name="interests" component={InterestPicker} />
-                    </div>
+                     
                 
                     <h2>Render Function</h2>
                     <Field
