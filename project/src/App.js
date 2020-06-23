@@ -8,67 +8,30 @@ class App extends Component {
     super(props);
 
      this.state = {
-       name  : '',
-       email : '',
-       gender: ''
-     }
+       messages: [
+         { author: 'Иво', content: 'Здравей!' },
+         { author: 'Ангел', content: 'Здрасти! Какшо става!' },
+         { author: 'Гошо', content: 'Пешо там ли е!' },
+         { author: 'Димитър', content: 'Не.' },
+         { author: 'Васил', content: 'Добре, до после!' }
+       ]
+     };
   }
 
-  handleInput = ( event ) => {
-    this.setState( {[event.target.id]: event.target.value} )
-  }
+  renderMessages() {
+    const messageElements = this.state.messages.map( (messageObj, index) => {
+     return <p key={ index }><b>{ messageObj.author }:</b>{ messageObj.content }</p>
+    });
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(this.state);
-    
+    return messageElements;
   }
    render() { 
-    return (
-      <div className='App' style={{padding: 25}}>
-        <form onSubmit={this.handleSubmit}>
-          <input 
-            id='name' 
-            value={this.state.name} 
-            onChange={this.handleInput}
-            type='text' 
-            placeholder='име'
-            autoComplete='off' 
-          />
-          <br/>
-          <input 
-            id='email'
-            type='text'
-            value={this.state.email} 
-            onChange={this.handleInput} 
-            placeholder='ел.поща'
-            autoComplete='off' 
-          />
-          <br/>
-          <select id='gender' value={this.state.gender} onChange={this.handleInput}>
-            <option value=''></option>
-            <option value='мъж'>Мъж</option>
-            <option value='жена'>Жена</option>
-          </select>
-          <br/>
-          <br/>
-          <input type='submit' value='Потвърди' />
-        </form>
-        <hr />
-        <div style={{ textAlign:'left' }}>
-          <p>
-             Име: <b>{this.state.name}</b>
-          </p>
-          <p>
-             Ел.поща: <b>{this.state.email}</b>
-          </p>
-          <p>
-             Пол: <b>{this.state.gender}</b>
-          </p>
+      return (
+        <div>
+            { this.renderMessages() }
         </div>
-      </div>
-    );
-  }
+      )
+    }
 }
 
 
