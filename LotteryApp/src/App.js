@@ -7,33 +7,39 @@ import './App.css';
 
 class App extends Component {
   constructor( props ){
-    super ( props )
+    super ( props );
+
     this.state = {
-      winningnumber   : getRandomNumber(),
-      tickets         : [],
+      winningnumber    : getRandomNumber(),
+      tickets          : [],
       remainingTickets : 5,
-      finished        : false
+      finished         : false
     };
 
     this.registerTickets = registerTickets.bind( this );
   }
 
   renderApp() {
+    const actions = {};
+
+    actions.registerTickets = this.registerTickets;
+
     return (
       <Lottery
-      remainingTickets = { this.state.remainingTickets }
+         actions          = { actions }
+         remainingTickets = { this.state.remainingTickets }
       />
     );
   }
 
-   render() { 
-     console.log(this.state.tickets);
+  render() { 
+    console.log(this.state.tickets);
      
-      return (
-        <div className='App'>
+     return ( 
+       <div className='App'>
             {this.renderApp()}
         </div>
-      )
+      ); 
     }
 }
 

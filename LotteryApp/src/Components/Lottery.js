@@ -4,8 +4,10 @@ import React, { Component } from 'react';
 class Lottery extends Component {
 
    renderButton() {
-       if( this.props.remainingTickets > 0 ){
-           return <button>КУПИ БИЛЕТ</button>
+       const { remainingTickets, actions } = this.props;
+
+       if( remainingTickets > 0 ){
+           return <button onClick={ actions.registerTickets }>КУПИ БИЛЕТ</button>
        }
    }
    render() { 
