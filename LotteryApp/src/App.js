@@ -20,20 +20,22 @@ class App extends Component {
   }
 
   renderApp() {
-    const actions = {};
+    const { tickets, remainingTickets } = this.state;
+    const actions                       = {};
 
     actions.registerTickets = this.registerTickets;
 
     return (
       <Lottery
          actions          = { actions }
-         remainingTickets = { this.state.remainingTickets }
+         tickets          = { tickets }
+         remainingTickets = { remainingTickets }
       />
     );
   }
 
   render() { 
-    console.log(this.state.tickets);
+     console.log(this.state.tickets);
      
      return ( 
        <div className='App'>
