@@ -1,25 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component } 		from 'react';
+import { Button, Card, Typography }	from 'antd';
 
+const { Title }	= Typography;
 
 class LotteryTicket extends Component {
+	render() {
+		const { actions, index, color, number }	= this.props;
 
-  
-   render() { 
-      const { color, number} = this.props;
-      return (
-         <div style={{
-            backgroundColor: color, 
-            padding: 5,
-            width: '60%', 
-            margin: 'auto'
-          }}
-         >
-         <button style={{float: 'left'}}>X</button>
-         <small>Това билетче има числото: <b>{ number }</b></small>
-         </div>
-      );
-    }
+		return(
+			<Card
+				style	={{ backgroundColor : color, marginBottom : 25	}}
+				size	= 'small'
+				title	= 'БИЛЕТЧЕ'
+			>
+				<b><Title level={ 3 } >{ number }</Title></b>
+				<Button
+					block
+					onClick	= { () => { actions.removeTicket( index ) } }
+				>
+				X
+				</Button>
+			</Card>
+		);
+	}
 }
-
 
 export default LotteryTicket;
