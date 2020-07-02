@@ -6,7 +6,7 @@ function Post( {imageUrl, imageAlt, children, author }) {
     return (
         <div className='Post'>
             <img src={imageUrl} alt={imageAlt}/>
-            <p>{children}</p>
+            <p className='description'>{children}</p>
             <div>
                 <span>
                     <small>Author:</small>

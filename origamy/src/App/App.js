@@ -4,6 +4,7 @@ import Navigation from '../Navigation/Navigation'
 import Aside from '../Aside/Aside'
 import Posts from '../Posts/Posts'
 import Main from './Main/Main'
+import Footer from '../Footer/Footer'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Posts />
         </Main>
       </div>
+      <Footer/>
     </div>
   );
 }
