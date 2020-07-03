@@ -5,11 +5,13 @@ import Aside from '../Aside/Aside'
 import Posts from '../Posts/Posts'
 import Main from './Main/Main'
 import Footer from '../Footer/Footer'
+import Loader from '../Loader/Loader'
 
 function App() {
   return (
     
     <div className="App">
+      <Loader local={true} isLoading={false} />
       <Navigation/>
       <div className='Container'>
         <Aside />
