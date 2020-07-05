@@ -7,9 +7,11 @@ function Aside() {
     return (
         <aside className='Aside'>
             <ul>
-                <Link url='#'>Aside Link 1</Link>
-                <Link url='#'>Aside Link 2</Link>
-                <Link url='#'>Aside Link 3</Link>
+                <Link to='/'>Posts</Link>
+                <Link to='/create-post'>New Post</Link>
+                <Link to='/profile'>Profile</Link>
+                <Link to='/login'>Login</Link>
+                <Link to='/register'>Register</Link>
               
             </ul>
         </aside>
