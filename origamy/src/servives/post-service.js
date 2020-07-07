@@ -1,6 +1,6 @@
 const postServie = {
     load: function(id){
-         return fetch(`https://jsonplaceholder.typicode.com/posts${id ? `/${id}` : ''}`).then(res => res.json());
+         return fetch(`http://localhost:9999/api/origami`.concat(id ? '/'.concat(id):'')).then(res => res.json());
     }
 };
  
