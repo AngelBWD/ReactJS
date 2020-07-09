@@ -1,4 +1,6 @@
 import React , {Component} from 'react';
+import PropTypes from 'prop-types'
+
 import './Posts.css';
 import Post from './Post/Post';
 import  postServie  from '../../servives/post-service';
@@ -19,20 +21,23 @@ export class Posts extends Component {
     };
 
     componentDidMount() {
-        postServie.load().then(posts => {
-            this.setState({ posts })
+        postServie.load(null, this.props.limit).then(posts => {
+          this.setState({ posts });
         });
-    }
+      }
     
     render() {
         const { posts } = this.state
         return posts ? <div className='Posts'>
-             {posts.map((post) => <Post key={post.id} imageUrl='logo192.png' imageAlt='alt' author={post.userId}>{post.body}</Post>)}
+             {posts.map((post) => <Post key={post._id} imageUrl='logo192.png' imageAlt='alt' author={post.author.username}>{post.description}</Post>)}
             </div> : <div>Loading...</div>;
         
     }
 }
 
+Posts.propTypes = {
+    limit: PropTypes.number
+}
 
 
 export default Posts;
