@@ -8,7 +8,7 @@ export class Detail extends Component {
     };
 
     componentDidMount() {
-        const id = this.match.params.id;
+        const id = this.props.match.params.id;
         postServie.load(id).then(post => {
             this.setState({ post })
         })
@@ -16,7 +16,7 @@ export class Detail extends Component {
     
     render() {
         const { post } = this.state;
-        return <Post description={post.description} author={post.author.username} />
+        return post && <Post description={post.description} author={post.author.username} />
     }
 }
 

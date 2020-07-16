@@ -11,7 +11,7 @@ function Navigation() {
                     <img id='logo' src='logo192.png' />
                 </Link>
                 <Link to='/'>Posts</Link>
-                <Link to='/create-post'>New Post</Link>
+                <Link to='/create-posts'>New Post</Link>
                 <Link to='/profile'>Profile</Link>
                 <Link to='/login'>Login</Link>
                 <Link to='/register'>Register</Link>
