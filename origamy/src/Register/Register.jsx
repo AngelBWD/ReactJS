@@ -1,4 +1,6 @@
 import React from 'react';
+import * as yup from 'yup';
+
 import '../shared/styles/LoginAndRegister.css';
 import withForm from '../shared/hocs/withForm';
 
@@ -9,24 +11,24 @@ class Register extends React.Component {
     rePasswordOnChangeHandler = this.props.controlChangeHandlerFactory('rePassword');
 
     submitHandler = () => {
-        const { username, password, rePassword } = this.props.getFormState();
-        console.log(username, password, rePassword);
+        this.props.runValidations()
+        .then(formData => console.log(formData));
     }
     render() {
-        const { username, password, rePassword } = this.props.getFormState();
+       
         return (
             <form className='Register'>
             <div className='form-control'>
                 <label>Username</label>
-                <input type="text" onChange={this.usernameOnChangeHandler} value={username}/>
+                <input type="text" onChange={this.usernameOnChangeHandler} />
             </div>
             <div className='form-control'>
                 <label>Password</label>
-                <input type="password" onChange={this.passwordOnChangeHandler} value={password}/>
+                <input type="password" onChange={this.passwordOnChangeHandler} />
             </div>
             <div className='form-control'>
                 <label>Re-Password</label>
-                <input type="password" onChange={this.rePasswordOnChangeHandler} value={rePassword}/>
+                <input type="password" onChange={this.rePasswordOnChangeHandler} />
             </div>
             <div className='form-control'>
                 <button type='button' onClick={this.submitHandler}>Register</button>
@@ -42,4 +44,19 @@ const initialFormState = {
     rePassword: ''    
 }
 
-export default withForm(Register, initialFormState)
+const schema = yup.object({
+    username: yup.string('Username shoud be a string')
+      .required('Username is required')
+      .min(4, 'Username should be more than 4 chars'),
+  
+    password: yup.string('Password must be a string')
+      .required('Password is required')
+      .min(6, 'Password must be more than 6 chars'),
+  
+    rePassword: yup.string('Password must be a string')
+    // .oneOf([yup.ref('password'), ''], 'Passwords don\'t match')
+    // .required('Password is required')
+    // .min(6, 'Password must be more than 6 chars')
+  });
+
+export default withForm(Register, initialFormState, schema)
